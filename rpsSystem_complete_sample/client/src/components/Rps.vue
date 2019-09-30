@@ -5,7 +5,7 @@
         <label for='p2'>p2</label>
         <input v-model='p2' type='text' id='p2'>
         <button @click='play'>play!</button>
-        <div v-if="result !== ''" class='result'>{{result}}</div>
+        <div v-if="!!result" class='result'>{{result}}</div>
     </div>
 </template>
 
@@ -18,7 +18,7 @@
             return {
                 p1: '',
                 p2: '',
-                result: ''
+                result: undefined
             }
         },
         methods: {

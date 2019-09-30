@@ -37,8 +37,10 @@ describe('Rps.vue', () => {
         jest.spyOn(AxiosService, 'post').mockImplementation(() => {
             return Promise.resolve({result: 'P1WINS'})
         })
-        expect(rps.find('input[type="text"]#p1').setValue('rock'))
-        expect(rps.find('input[type="text"]#p2').setValue('scissors'))
+        rps.find('input[type="text"]#p1').setValue('rock')
+        rps.find('input[type="text"]#p2').setValue('scissors')
+        expect(rps.find('.result').exists()).toBeFalsy()
+
 
        rps.find('button').trigger('click')
         await flushPromises()
